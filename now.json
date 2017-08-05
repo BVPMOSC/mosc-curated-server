@@ -1,0 +1,8 @@
+{
+  "name": "mosc-curated-server",
+  "alias": "mosc-curated-api",
+  "env": {
+    "SOURCE_REPO": "BVPMOSC/mosc-curated",
+    "DB_PATH": "/tmp"
+  }
+}
