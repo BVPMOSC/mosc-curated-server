@@ -26,7 +26,7 @@ const gh = new GitHub({
 
 // Fields parsed from the md file
 const moduleFields = [
-  { key: 'vue', array: true },
+  { key: 'tags', array: true },
   { key: 'links', array: true, map: parseMarkdownLink },
   { key: 'status' },
   { key: 'badge' },
@@ -34,6 +34,7 @@ const moduleFields = [
 
 // GitHub repo containing the packages list
 let sourceRepo = gh.getRepo(OWNER, REPO)
+
 
 function generateCategoryId (label) {
   return label.trim().toLowerCase().replace(/\s+/g, '_').replace(/\W/g, '')
@@ -155,11 +156,11 @@ export async function getModules () {
           ...data,
         }
 
-        data.vue.forEach(vue => {
+        data.tags.forEach(vue => {
           if (!releases.find(r => r.id === vue)) {
             releases.push({
               id: vue,
-              label: `Vue ${vue}`,
+              label: `${vue}`,
             })
           }
         })
